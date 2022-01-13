@@ -8,36 +8,45 @@ namespace ProjetJeuPOO
     class Controller
     {
         private static Controller controller = new Controller();
-       private static BingoController bingoController = new BingoController();
+        private static BingoController bingoController = new BingoController();
         private static BlackJackController blackJackController = new BlackJackController();
-         private static PenduController penduController = new PenduController();
-
+        private static PenduController penduController = new PenduController();
+        private static string nomJoueur;
         internal static BingoController BingoController { get => bingoController; set => bingoController = value; }
         internal static BlackJackController BlackJackController { get => blackJackController; set => blackJackController = value; }
         internal static PenduController PenduController { get => penduController; set => penduController = value; }
         internal static Controller controllerEX { get => controller; set => controller = value; }
+        public static string NomJoueur { get => nomJoueur; set => nomJoueur = value; }
 
         static void Main(string[] args)
         {
+          
             Demarrer();
         }
 
         static void Demarrer()
         {
+            NomTableau();
             do
-            {   Console.Clear();
-                TableauScore();
-                MenuJeux();
+            {  
+                Console.Clear();
+                TableauScore(nomJoueur);
             }
             while (true);
+            MenuJeux();
+
 
         }
-        static void TableauScore()
-        {
 
+        static void NomTableau()
+        {
             Console.WriteLine("Bienvenue dans vos jeux!");
             Console.WriteLine("Veuillez entrer votre nom:");
-            string nomJoueur = Console.ReadLine();
+            nomJoueur = Console.ReadLine();
+            TableauScore(nomJoueur);
+        }
+        static void TableauScore(string nomJoueur)
+        {
             Console.WriteLine("******************************");
             Console.Write("|"); Console.WriteLine("Nom du joueur: {0}", nomJoueur);
             Console.Write("|"); Console.WriteLine("BINGO: ");

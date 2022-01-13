@@ -10,6 +10,8 @@ namespace ProjetJeuPOO.Bingo
         private int partiesGagnees = 0;
         Boulier boulier = new Boulier();
         BingoCard bingoCard = new BingoCard();
+        private bool partieEnCours = false;
+        // Arraylist ou list de bingocard
 
         public BingoController()
         {
@@ -20,9 +22,11 @@ namespace ProjetJeuPOO.Bingo
 
         public void NouvellePartie()
         {
+            this.partieEnCours = true;
             boulier.fillBoulier();
             PartiesJouees++;
             Console.WriteLine("COOL");
+            MenuBingo();
         }
 
         public void RefairePartie()
@@ -35,6 +39,7 @@ namespace ProjetJeuPOO.Bingo
             }
             else if(choixPartie == "N")
             {
+                this.partieEnCours = false;
             }
         }
 
@@ -79,26 +84,27 @@ namespace ProjetJeuPOO.Bingo
             switch(choix)
             {
                 case "1":
-                    CreerCarte();
+                    bingoCard.CreerCartes();
                     break;
 
                 case "2":
-                    CreerCarte();
-                    CreerCarte();
+                    bingoCard.CreerCartes();
+                    bingoCard.CreerCartes();
                     break;
 
                 case "3":
-                    CreerCarte();
-                    CreerCarte();
-                    CreerCarte();
+                    bingoCard.CreerCartes();
+                    bingoCard.CreerCartes();
+                    bingoCard.CreerCartes();
                     break;
 
                 case "4":
-                    CreerCarte();
-                    CreerCarte();
-                    CreerCarte();
-                    CreerCarte();
+                    bingoCard.CreerCartes();
+                    bingoCard.CreerCartes();
+                    bingoCard.CreerCartes();
+                    bingoCard.CreerCartes();
                     break;
+
                 default:
                     Console.WriteLine("Veuillez choisir un chiffre entre 1 et 4");
                     break;

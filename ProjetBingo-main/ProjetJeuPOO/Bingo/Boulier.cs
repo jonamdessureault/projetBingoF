@@ -8,9 +8,11 @@ namespace ProjetJeuPOO.Bingo
 {
     class Boulier : IBingoBoulier
     {
+        private int[,] carteAnnonceur = new int[15, 5];
         private List<BingoBall> Boules;
+        private Random random = new Random();
 
-
+        public Random Random { get => random; set => random = value; }
 
         public Boulier()
         {
@@ -100,7 +102,47 @@ namespace ProjetJeuPOO.Bingo
 
         public void TirerBoule()
         {
+            int index = Random.Next(Boules.Count);
+            BingoBall ball = Boules[index];
+            Boules.RemoveAt(index);
+            Console.WriteLine(Boules[index]);
+            RemplirCarteA(ball);
+        }
 
+        public void RemplirCarteA(BingoBall ball)
+        {
+
+            for(int i = 0; i < 15; i++)
+            {
+                for(int j = 0; j < 5; j++)
+                {
+                    if(ball.Letter == 'B')
+                    { 
+                        j = 0;
+                        i = ball.Number - 1;
+                    }
+                    else if(ball.Letter == 'I')
+                    {
+                        j = 1;
+                        i = ball.Number - 16;
+                    }
+                    else if(ball.Letter == 'N')
+                    {
+                        j = 2;
+                        i = ball.Number - 31;
+                    }
+                    else if(ball.Letter == 'G')
+                    {
+                        j = 3;
+                        i = ball.Number - 46;
+                    }
+                    else
+                    {
+                        j = 4;
+                        i = ball.Number - 61; 
+                    }
+                }
+            }
         }
 
         public void FinPartie()
@@ -118,7 +160,6 @@ namespace ProjetJeuPOO.Bingo
             Console.WriteLine("5- Fin de partie");
             string choixBingo = Console.ReadLine();
             ChoixMenuBingo(choixBingo);
-
         }
 
         public void ChoixMenuBingo(string choix)
@@ -138,7 +179,7 @@ namespace ProjetJeuPOO.Bingo
                     break;
 
                 case "4":
-                    TirezBoule();
+                    TirerBoule();
                     break;
 
                 case "5":
@@ -148,7 +189,6 @@ namespace ProjetJeuPOO.Bingo
                 default:
                     Console.WriteLine("Veuillez entrer un choix valide");
                     break;
-
             }
         }
     }

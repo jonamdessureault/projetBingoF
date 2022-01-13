@@ -14,12 +14,11 @@ namespace ProjetJeuPOO.Bingo
 
         public BingoBall(char letter, int number)
         {
-            this.letter = letter;
-            this.number = number;
+            this.Letter = letter;
+            this.Number = number;
         }
 
-
-
-
+        public char Letter { get => letter; set => letter = value; }
+        public int Number { get => number; set => number = value; }
     }
 }
