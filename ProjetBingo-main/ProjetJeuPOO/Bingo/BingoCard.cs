@@ -16,15 +16,42 @@ namespace ProjetJeuPOO.Bingo
 
         }
 
+        public void NombreCartes()
+        {
+            Console.WriteLine("Veuillez inscrire le numéro de la carte à consulter");
+            string nombreCarte = Console.ReadLine();
+            ChoixCartes(nombreCarte);
+        }
+        public void ChoixCartes(string choix)
+        {
 
-        public void AfficherCartes()
+            switch(choix)
+            {
+                case "1":
+                    Console.WriteLine("Carte 1");
+                    break;
+                case "2":
+                    Console.WriteLine("Carte 2");
+                    break;
+                case "3":
+                    Console.WriteLine("Carte 3");
+                    break;
+                case "4":
+                    Console.WriteLine("Carte 4");
+                    break;
+                default: Console.WriteLine("Nombre de cartes invalide");
+                    break;
+            }
+
+            AfficherCartes(choix);
+
+        }
+
+
+        public void AfficherCartes(string choixCarte)
         {
 
         }
 
-        public void AfficherCarteA()
-        {
-
-        }
     }
 }

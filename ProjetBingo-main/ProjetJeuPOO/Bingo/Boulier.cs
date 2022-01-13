@@ -111,11 +111,8 @@ namespace ProjetJeuPOO.Bingo
 
         public void RemplirCarteA(BingoBall ball)
         {
-
-            for(int i = 0; i < 15; i++)
-            {
-                for(int j = 0; j < 5; j++)
-                {
+            int j;
+            int i;
                     if(ball.Letter == 'B')
                     { 
                         j = 0;
@@ -141,8 +138,8 @@ namespace ProjetJeuPOO.Bingo
                         j = 4;
                         i = ball.Number - 61; 
                     }
-                }
-            }
+
+                    carteAnnonceur[i, j] = ball.Number;
         }
 
         public void FinPartie()
@@ -189,6 +186,20 @@ namespace ProjetJeuPOO.Bingo
                 default:
                     Console.WriteLine("Veuillez entrer un choix valide");
                     break;
+            }
+
+
+        }
+
+        public void AfficherCarteA()
+        {
+            string B = "B", I = "I", N = "N", G = "G", O = "O";
+            Console.WriteLine("-------------------------------------");
+            Console.WriteLine("{0,15} {1,15} {2,15} {3,15} {4,15} ", B, I, N, G, O);
+
+            for (int i = 0; i < 15; i++)
+            {
+                Console.WriteLine("{0,15} {1,15} {2,15} {3,15} {4,15}", carteAnnonceur[i, 0], carteAnnonceur[i, 1], carteAnnonceur[i, 2], carteAnnonceur[i, 3], carteAnnonceur[i, 4]);
             }
         }
     }
