@@ -31,9 +31,26 @@ namespace ProjetJeuPOO
             {  
                 Console.Clear();
                 TableauScore(nomJoueur);
+                 
+                if(blackJackController.PartieEnCours == true)
+                {
+                    blackJackController.MenuBlackJack();
+                }
+                else if(penduController.PartieEnCours == true)
+                {
+                    penduController.MenuPendu();
+                }
+                else if(bingoController.PartieEnCours == true)
+                {
+                    bingoController.MenuBingo();
+                }
+                else
+                {
+                    MenuJeux();
+                }
             }
             while (true);
-            MenuJeux();
+            
 
 
         }
@@ -78,13 +95,16 @@ namespace ProjetJeuPOO
             {
                 case "1":
                     bingoController.MenuBingo();
+                    bingoController.PartieEnCours = true;
                     break;
 
                 case "2":
-                    blackJackController.NouvellePartie();
+                    blackJackController.MenuBlackJack();
+                    blackJackController.PartieEnCours = true;
                     break;
                 case "3":
-                    penduController.NouvellePartie();
+                    penduController.MenuPendu();
+                    blackJackController.PartieEnCours = true;
                     break;
             }
         }

@@ -48,7 +48,11 @@ namespace ProjetJeuPOO.Bingo
         }
 
 
-        public void AfficherCartes(string choixCarte)
+        public void AfficherCartes(string choix)
+        {
+        }
+
+        public void CreerCartes()
         {
 
         }

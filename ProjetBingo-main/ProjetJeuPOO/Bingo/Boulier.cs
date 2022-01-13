@@ -107,6 +107,8 @@ namespace ProjetJeuPOO.Bingo
             Boules.RemoveAt(index);
             Console.WriteLine(Boules[index]);
             RemplirCarteA(ball);
+            Console.WriteLine("Boule tirée :{0}", ball);
+            BingoController.AppuyerEnter();
         }
 
         public void RemplirCarteA(BingoBall ball)

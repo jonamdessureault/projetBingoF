@@ -11,6 +11,7 @@ namespace ProjetJeuPOO.Bingo
         Boulier boulier = new Boulier();
         BingoCard bingoCard = new BingoCard();
         private bool partieEnCours = false;
+        
         // Arraylist ou list de bingocard
 
         public BingoController()
@@ -19,10 +20,16 @@ namespace ProjetJeuPOO.Bingo
 
         public int PartiesJouees { get => partiesJouees; set => partiesJouees = value; }
         public int PartiesGagnees { get => partiesGagnees; set => partiesGagnees = value; }
+        public bool PartieEnCours { get => partieEnCours; set => partieEnCours = value; }
 
+        public static void AppuyerEnter()
+        {
+            Console.WriteLine("Veuillez appuyer sur enter pour poursuivre");
+            Console.ReadLine();
+        }
         public void NouvellePartie()
         {
-            this.partieEnCours = true;
+            this.PartieEnCours = true;
             boulier.fillBoulier();
             PartiesJouees++;
             Console.WriteLine("COOL");
@@ -39,7 +46,7 @@ namespace ProjetJeuPOO.Bingo
             }
             else if(choixPartie == "N")
             {
-                this.partieEnCours = false;
+                this.PartieEnCours = false;
             }
         }
 
@@ -63,10 +70,10 @@ namespace ProjetJeuPOO.Bingo
                     NouvellePartie();
                     break;
                 case "2":
-                    bingoCard.AfficherCartes();
+                    bingoCard.NombreCartes();
                     break;
                 case "3":
-                    bingoCard.AfficherCarteA();
+                    boulier.AfficherCarteA();
                     break;
                 case "4":
                     boulier.TirerBoule();
