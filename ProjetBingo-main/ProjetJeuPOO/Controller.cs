@@ -29,8 +29,6 @@ namespace ProjetJeuPOO
             NomTableau();
             do
             {  
-                Console.Clear();
-                TableauScore(nomJoueur);
                  
                 if(blackJackController.PartieEnCours == true)
                 {

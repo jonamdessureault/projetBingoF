@@ -102,6 +102,7 @@ namespace ProjetJeuPOO.Bingo
 
         public void TirerBoule()
         {
+
             int index = Random.Next(Boules.Count);
             BingoBall ball = Boules[index];
             Boules.RemoveAt(index);
