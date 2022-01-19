@@ -28,8 +28,9 @@ namespace ProjetJeuPOO
         {
             NomTableau();
             do
-            {  
-                 
+            {
+                Console.Clear();
+                TableauScore(NomJoueur);
                 if(blackJackController.PartieEnCours == true)
                 {
                     blackJackController.MenuBlackJack();
@@ -92,8 +93,7 @@ namespace ProjetJeuPOO
             switch (choix)
             {
                 case "1":
-                    bingoController.MenuBingo();
-                    bingoController.PartieEnCours = true;
+                    bingoController.NouvellePartie();
                     break;
 
                 case "2":

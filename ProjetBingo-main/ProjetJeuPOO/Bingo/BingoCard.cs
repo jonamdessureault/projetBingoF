@@ -9,18 +9,19 @@ namespace ProjetJeuPOO.Bingo
 {
     class BingoCard
     {
-        int[,] carteJoueur = new int[5, 5];       
+        int[,] carteJoueur = new int[5, 5];
+        BingoCard bingoCard = new BingoCard();
 
         public BingoCard()
         {
-
-        }
-
-        public void NombreCartes()
-        {
-            Console.WriteLine("Veuillez inscrire le numéro de la carte à consulter");
-            string nombreCarte = Console.ReadLine();
-            ChoixCartes(nombreCarte);
+            for(int i = 0; i < 5; i++)
+            {
+                for(int j = 0; j < 5; j++)
+                {
+                    Random random = new Random();
+                    int numero = random.Next(75);
+                    carteJoueur[i, j] = numero;                }
+            }
         }
         public void ChoixCartes(string choix)
         {
@@ -50,6 +51,11 @@ namespace ProjetJeuPOO.Bingo
 
         public void AfficherCartes(string choix)
         {
+            string B = "B", I = "I", N = "N", G = "G", O = "O";
+            Console.WriteLine("Carte du joueur numéro {0}", choix);
+            Console.WriteLine("---------------------------------------------------------------");
+            Console.WriteLine("{0,4} {1,4} {2,4} {3,4} {4,4} ", B, I, N, G, O);
+
         }
 
         public void CreerCartes()

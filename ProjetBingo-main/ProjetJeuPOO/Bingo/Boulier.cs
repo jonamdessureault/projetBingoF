@@ -106,9 +106,8 @@ namespace ProjetJeuPOO.Bingo
             int index = Random.Next(Boules.Count);
             BingoBall ball = Boules[index];
             Boules.RemoveAt(index);
-            Console.WriteLine(Boules[index]);
             RemplirCarteA(ball);
-            Console.WriteLine("Boule tirée :{0}", ball);
+            Console.WriteLine("Boule tirée :{0}", ball.Number);
             BingoController.AppuyerEnter();
         }
 
@@ -197,13 +196,15 @@ namespace ProjetJeuPOO.Bingo
         public void AfficherCarteA()
         {
             string B = "B", I = "I", N = "N", G = "G", O = "O";
-            Console.WriteLine("-------------------------------------");
+            Console.WriteLine("Carte de l'annonceur: ");
+            Console.WriteLine("-------------------------------------------------------------------------------------------");
             Console.WriteLine("{0,15} {1,15} {2,15} {3,15} {4,15} ", B, I, N, G, O);
 
             for (int i = 0; i < 15; i++)
             {
                 Console.WriteLine("{0,15} {1,15} {2,15} {3,15} {4,15}", carteAnnonceur[i, 0], carteAnnonceur[i, 1], carteAnnonceur[i, 2], carteAnnonceur[i, 3], carteAnnonceur[i, 4]);
             }
+            BingoController.AppuyerEnter();
         }
     }
 }
