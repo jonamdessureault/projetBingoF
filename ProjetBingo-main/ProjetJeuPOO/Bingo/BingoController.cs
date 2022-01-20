@@ -48,16 +48,16 @@ namespace ProjetJeuPOO.Bingo
             switch (choix)
             {
                 case "1":
-                    listeCards[1].AfficherCartes();
+                    listeCards[0].AfficherCartes();
                     break;
                 case "2":
-                    listeCards[2].AfficherCartes();
+                    listeCards[1].AfficherCartes();
                     break;
                 case "3":
-                    listeCards[3].AfficherCartes();
+                    listeCards[2].AfficherCartes();
                     break;
                 case "4":
-                    listeCards[4].AfficherCartes();
+                    listeCards[3].AfficherCartes();
                     break;
                 default:
                     Console.WriteLine("Nombre de cartes invalide");
@@ -66,54 +66,64 @@ namespace ProjetJeuPOO.Bingo
 
         }
 
-    /*   public void MarquerCartes()
+      public void MarquerCartes()
         {
             foreach (BingoCard card in listeCards)
             {
-                if(boulier.CarteAnnonceur[i,j] = carteJoueur[i,j])
+                for(int i = 0; i < 15; i++)
                 {
-                    carteJoueur[i, j] = 0;
+                    for(int j = 0; j < 5; j++)
+                    {
+                        for(int x = 0; x < 5; x++)
+                        {
+                            for(int y = 0; y < 5; y++)
+                            {
+                                if (boulier.CarteAnnonceur[i,j] == card.CarteJoueur[x, y])
+                                {
+                                    card.CarteJoueur[x, y] = 0;
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
-    */
+    
 
-       /* public void GagnerPartie()
+       public void GagnerPartie()
         {
             foreach (BingoCard card in listeCards)
             {
                 for (int i = 0; i < 5; i++)
                 {
-                    for (int j = 0; j < 5; j++)
+                    if (card.CarteJoueur[i, 0] == 0 && card.CarteJoueur[i, 1] == 0 && card.CarteJoueur[i, 2] == 0 && card.CarteJoueur[i, 3] == 0 && card.CarteJoueur[i, 4] == 0)
                     {
-                        if (carteJoueur[0, j] = 0)
-                        {
-                            ProcessWin();
-                        }
-                        else if (carteJoueur[1, j] = 0)
-                        {
-                            ProcessWin();
-                        }
-                        else if (carteJoueur[2, j] = 0)
-                        {
-                            ProcessWin();
-                        }
-                        else if (carteJoueur[3, j] = 0)
-                        {
-                            ProcessWin();
-                        }
-                        else if (carteJoueur[4, j] = 0)
-                        {
-                            ProcessWin();
-                        }
-
+                        ProcessWin();
                     }
                 }
+
+                for (int j = 0; j < 5; j++)
+                {
+                    if (card.CarteJoueur[0, j] == 0 & card.CarteJoueur[1, j] == 0 & card.CarteJoueur[2, j] == 0 & card.CarteJoueur[3, j] == 0 & card.CarteJoueur[4, j] == 0)
+                    {
+                        ProcessWin();
+                    }
+                }
+
+                if (card.CarteJoueur[0, 0] == 0 & card.CarteJoueur[1, 1] == 0 & card.CarteJoueur[2, 2] == 0 & card.CarteJoueur[3, 3] == 0 & card.CarteJoueur[4, 4] == 0)
+                {
+                    ProcessWin();
+                }
+                else if (card.CarteJoueur[0, 4] == 0 & card.CarteJoueur[1, 3] == 0 & card.CarteJoueur[2, 2] == 0 & card.CarteJoueur[3, 2] == 0 & card.CarteJoueur[4, 0] == 0)
+                {
+                    ProcessWin();
+                }
             }
-        }*/
+        }
+
         public void ProcessWin()
-        { string chien = "chien";
-            Console.WriteLine("BINGO sur la carte {0}",chien);
+        {
+            Console.WriteLine("BINGO");
             partiesGagnees++;
             RefairePartie();
         }
@@ -159,6 +169,8 @@ namespace ProjetJeuPOO.Bingo
                     break;
                 case "4":
                     boulier.TirerBoule();
+                    MarquerCartes();
+                    GagnerPartie();
                     break;
                 case "5":
                     Console.WriteLine("s");
