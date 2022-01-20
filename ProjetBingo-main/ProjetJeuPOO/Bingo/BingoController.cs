@@ -48,31 +48,21 @@ namespace ProjetJeuPOO.Bingo
             switch (choix)
             {
                 case "1":
-                    Console.WriteLine("Carte 1");
+                    listeCards[1].bingoCard.AfficherCartes();
                     break;
                 case "2":
-                    Console.WriteLine("Carte 2");
+                    listeCards[2].bingoCard.AfficherCartes();
                     break;
                 case "3":
-                    Console.WriteLine("Carte 3");
+                    listeCards[3].bingoCard.AfficherCartes();
                     break;
                 case "4":
-                    Console.WriteLine("Carte 4");
+                    listeCards[4].bingoCard.AfficherCartes();
                     break;
                 default:
                     Console.WriteLine("Nombre de cartes invalide");
                     break;
             }
-
-            AfficherCartes(choix);
-
-        }
-        public void AfficherCartes(string choix)
-        {
-            string B = "B", I = "I", N = "N", G = "G", O = "O";
-            Console.WriteLine("Carte du joueur numéro {0}", choix);
-            Console.WriteLine("---------------------------------------------------------------");
-            Console.WriteLine("{0,4} {1,4} {2,4} {3,4} {4,4} ", B, I, N, G, O);
 
         }
 
@@ -133,6 +123,7 @@ namespace ProjetJeuPOO.Bingo
             for (int i = 0; i < choixCarte; i++)
             {
                 BingoCard bingoCard = new BingoCard();
+                listeCards = new List<BingoCard>();
                 listeCards.Add(bingoCard);
             }
 
