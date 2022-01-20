@@ -16,6 +16,7 @@ namespace ProjetJeuPOO.Bingo
 
         public BingoController()
         {
+
         }
 
         public int PartiesJouees { get => partiesJouees; set => partiesJouees = value; }
@@ -33,13 +34,46 @@ namespace ProjetJeuPOO.Bingo
             this.PartieEnCours = true;
             boulier.fillBoulier();
             PartiesJouees++;
-            ChoixCartes(string choix);
+            ChoixNombre();
         }
         public void NombreCartes()
         {
             Console.WriteLine("Veuillez inscrire le numéro de la carte à consulter");
             string nombreCarte = Console.ReadLine();
             ChoixCartes(nombreCarte);
+        }
+        public void ChoixCartes(string choix)
+        {
+
+            switch (choix)
+            {
+                case "1":
+                    Console.WriteLine("Carte 1");
+                    break;
+                case "2":
+                    Console.WriteLine("Carte 2");
+                    break;
+                case "3":
+                    Console.WriteLine("Carte 3");
+                    break;
+                case "4":
+                    Console.WriteLine("Carte 4");
+                    break;
+                default:
+                    Console.WriteLine("Nombre de cartes invalide");
+                    break;
+            }
+
+            AfficherCartes(choix);
+
+        }
+        public void AfficherCartes(string choix)
+        {
+            string B = "B", I = "I", N = "N", G = "G", O = "O";
+            Console.WriteLine("Carte du joueur numéro {0}", choix);
+            Console.WriteLine("---------------------------------------------------------------");
+            Console.WriteLine("{0,4} {1,4} {2,4} {3,4} {4,4} ", B, I, N, G, O);
+
         }
 
         public void RefairePartie()
@@ -91,7 +125,7 @@ namespace ProjetJeuPOO.Bingo
             }
         }
 
-        public void ChoixCartes(string choix)
+        public void ChoixNombre()
         {
             Console.WriteLine("Combien de cartes désirez-vous jouer ? (4 max)");
             int choixCarte = Convert.ToInt32(Console.ReadLine());
@@ -103,6 +137,5 @@ namespace ProjetJeuPOO.Bingo
             }
 
         }
-
     }
  }
