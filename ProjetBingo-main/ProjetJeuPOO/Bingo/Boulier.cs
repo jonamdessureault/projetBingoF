@@ -13,6 +13,7 @@ namespace ProjetJeuPOO.Bingo
         private Random random = new Random();
 
         public Random Random { get => random; set => random = value; }
+        public int[,] CarteAnnonceur { get => carteAnnonceur; set => carteAnnonceur = value; }
 
         public Boulier()
         {
@@ -141,7 +142,7 @@ namespace ProjetJeuPOO.Bingo
                         i = ball.Number - 61; 
                     }
 
-                    carteAnnonceur[i, j] = ball.Number;
+                    CarteAnnonceur[i, j] = ball.Number;
         }
 
         public void FinPartie()
@@ -202,7 +203,7 @@ namespace ProjetJeuPOO.Bingo
 
             for (int i = 0; i < 15; i++)
             {
-                Console.WriteLine("{0,15} {1,15} {2,15} {3,15} {4,15}", carteAnnonceur[i, 0], carteAnnonceur[i, 1], carteAnnonceur[i, 2], carteAnnonceur[i, 3], carteAnnonceur[i, 4]);
+                Console.WriteLine("{0,15} {1,15} {2,15} {3,15} {4,15}", CarteAnnonceur[i, 0], CarteAnnonceur[i, 1], CarteAnnonceur[i, 2], CarteAnnonceur[i, 3], CarteAnnonceur[i, 4]);
             }
             BingoController.AppuyerEnter();
         }
